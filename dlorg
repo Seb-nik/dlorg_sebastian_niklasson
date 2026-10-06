@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+
+# Check if the directories exist and create them if they don't
 if [ ! -d ~/Downloads/zip/ ]; then
 	mkdir ~/Downloads/zip/ 
 fi 
@@ -33,6 +35,7 @@ if [ ! -d ~/Downloads/other/ ]; then
 fi
 
 
+# Sort the files in the correct folders
 inotifywait -m -e close_write -e moved_to --format "%f" ~/Downloads |
 while read -r filename; do
     case "$filename" in
