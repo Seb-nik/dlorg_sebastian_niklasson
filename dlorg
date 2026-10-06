@@ -1,5 +1,38 @@
 #!/usr/bin/env bash
 
+if [ ! -d ~/Downloads/zip/ ]; then
+	mkdir ~/Downloads/zip/ 
+fi 
+
+if [ ! -d ~/Downloads/text/ ]; then
+	mkdir ~/Downloads/text/
+fi
+
+if [ ! -d ~/Downloads/images/ ]; then
+	mkdir ~/Downloads/images/
+fi
+
+if [ ! -d ~/Downloads/music/ ]; then
+	mkdir ~/Downloads/music/
+fi
+
+if [ ! -d ~/Downloads/videos/ ]; then
+	mkdir ~/Downloads/videos/
+fi
+
+if [ ! -d ~/Downloads/documents/ ]; then
+	mkdir ~/Downloads/documents/
+fi
+
+if [ ! -d ~/Downloads/pdf/ ]; then
+	mkdir ~/Downloads/pdf/
+fi
+
+if [ ! -d ~/Downloads/other/ ]; then
+	mkdir ~/Downloads/other/
+fi
+
+
 inotifywait -m -e close_write -e moved_to --format "%f" ~/Downloads |
 while read -r filename; do
     case "$filename" in
