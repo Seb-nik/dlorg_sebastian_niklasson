@@ -1,18 +1,16 @@
 #!/usr/bin/env bash
 
-echo "$PWD"
-
-inotifywait -m -e close_write -e moved_to --format "%f" "$PWD" |
+inotifywait -m -e close_write -e moved_to --format "%f" ~/Downloads |
 while read -r filename; do
     case "$filename" in
-    	*.txt|*.md) mv $filename text/$filename;;
-    	*.png|*.jpeg|*.jpg|*.bmp)
-        mv $filename images/$filenames;;
-	*.mp3) mv $filename music/$filename;;
-	*.mp4) mv $filename videos/$filename;;
-	*.docx) mv $filename documents/$filename;;
-	*.pdf) mv $filename pdf/$filename;;
-	*.zip) mv $filename zip/$filename;;
-    *) mv $filename other/$filename;;
+    	*.txt|*.md) mv ~/Downloads/$filename ~/Downloads/text/$filename;;
+        *.png|*.jpeg|*.jpg|*.bmp)
+        mv ~/Downloads/$filename ~/Downloads/images/$filenames;;
+	*.mp3) mv ~/Downloads/$filename ~/Downloads/music/$filename;;
+	*.mp4) mv ~/Downloads/$filename ~/Downloads/videos/$filename;;
+	*.docx) mv ~/Downloads/$filename ~/Downloads/documents/$filename;;
+	*.pdf) mv ~/Downloads/$filename ~/Downloads/pdf/$filename;;
+	*.zip) mv ~/Downloads/$filename ~/Downloads/zip/$filename;;
+    *) mv ~/Downloads/$filename ~/Downloads/other/$filename;;
 esac
 done
